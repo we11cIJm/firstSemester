@@ -7,7 +7,7 @@
 int main() // https://codeforces.com/contest/1703/problem/C
 {
     int t, n, a;
-    std::cin >> t;
+    std::cin >> t; 
     for(int i = 0; i < t; i++)
     {
         std::cin >> n;
