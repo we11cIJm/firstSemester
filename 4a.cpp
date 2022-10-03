@@ -6,7 +6,7 @@
 
 int main() // https://codeforces.com/contest/4/problem/A
 {
-    int w;
+    int w; 
     std::cin >> w;
     if(!(w % 2) && w > 2)
     {
