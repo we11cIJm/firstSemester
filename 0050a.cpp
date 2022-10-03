@@ -3,7 +3,7 @@
 #include <cmath>
 #include <string>
 #include <algorithm>
-
+ 
 int main() // https://codeforces.com/contest/50/problem/A
 {
     int m, n;
