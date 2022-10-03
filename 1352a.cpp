@@ -28,7 +28,7 @@ int main() // https://codeforces.com/contest/1352/problem/A
         {
             std::cout << a*1000 << " ";
         }
-        if(b != 0)
+        if(b != 0) 
         {
             std::cout << b*100 << " ";
         }
