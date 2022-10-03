@@ -3,7 +3,7 @@
 #include <cmath>
 #include <string>
 #include <algorithm>
-
+ 
 int main() // https://codeforces.com/contest/276/problem/A
 {
     int f, t, k, c, ans = -1e9;
