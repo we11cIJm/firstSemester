@@ -1,11 +1,7 @@
 #include <iostream>
-#include <vector>
 #include <string>
-#include <algorithm>
-#include <cmath>
-#include <array>
-
-void solve1680B()
+ 
+int main()
 {
     int t;
     std::cin >> t;
@@ -16,7 +12,7 @@ void solve1680B()
         std::string str;
 		char a;
         bool first = true, check = true;
-        int r, c;
+        int c;
         for(int i = 0; i < row; i++)
         {
             std::cin >> str;
@@ -26,22 +22,15 @@ void solve1680B()
             	if(a == 'R')
             	{
             	    if(!first && k < c) check = false;
-            	}
-            	if(first)
-            	{
-            	    //r = i;
-            	    c = k;
-            	    first = false;
+					if(first)
+            		{
+            		    c = k;
+            		    first = false;
+            		}
             	}
 			}
-			// std::cout << a;
         }
         if(check) std::cout << "YES" << '\n';
         else std::cout << "NO" << '\n';
     }
-}
-
-int main()
-{
-    solve1680B();
 }
