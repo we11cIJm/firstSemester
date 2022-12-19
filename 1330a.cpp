@@ -1,43 +1,41 @@
 #include <iostream>
-#include <vector>
-#include <cmath>
-#include <string>
-#include <algorithm>
-
-/*    problem not solved yet    */
-int main() // https://codeforces.com/problemset/problem/1330/A
+#include <array>
+ 
+int main()
 {
-    int t, n, x, a;
+int t = 0, n = 0, x = 0, a = 0, m=0;
     std::cin >> t;
-    std::vector<int> arr;
-    for(int i = 0; i < t; i++)
+    for (int i = 0; i < t; i++)
     {
         std::cin >> n >> x;
-        arr.reserve(101);
-        for(int l = 1; l <= n; l++)
+        std::array <int, 200> arr = { 0 };
+        for (int k = 0; k < n; k++)
         {
             std::cin >> a;
-            arr[a] = a;
+            arr[a - 1] = 1;
         }
-        int c = 0, sz = arr.size();
-        for(int l = 1; l <= 100; l++)
+        for (int k = 0; k < (int)arr.size(); k++)
         {
-            if(arr[l] == 0)
+            if (x != 0)
             {
-                c++;
+                if (arr[k] == 0)
+                {
+                    x--;
+                }
+                m = k + 1;
             }
-            if(c > x || l == 100)
+            else
             {
-                if(c > x)
+                while (arr[k] != 0)
                 {
-                    std::cout << arr[l - 1] << std::endl;
-                    break;
+                    m = k + 1;
+                    k++;
+ 
                 }
-                else
-                {
-                    std::cout << 100 + x - c << std::endl;
-                }
+             
+                break;
             }
         }
+        std::cout << m <<std::endl;
     }
 }
