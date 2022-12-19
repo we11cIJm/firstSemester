@@ -9,7 +9,6 @@ void solve915A()
 {
     int n, k, a, max = -1;
     std::cin >> n >> k;
-    // std::vector<int> arr;
     for(int i = 0; i < n; i++)
     {
         std::cin >> a;
