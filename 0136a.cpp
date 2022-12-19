@@ -4,7 +4,7 @@
 #include <algorithm>
 #include <cmath>
 #include <array>
- 
+
 void solve136A()
 {
     int n, x;
