@@ -1,15 +1,19 @@
 #include <iostream>
-#include <vector>
-#include <cmath>
-#include <string>
-#include <algorithm>
-
-int main() // https://codeforces.com/problemset/problem/1721/B
+ 
+int main()
 {
-    int t, n, m, sx, sy, d;
+    int n,m,sx,sy,d,t,i;
     std::cin >> t;
-    for(int i = 0; i < t; i++)
+    for(i=1;i<=t;i++)
     {
         std::cin >> n >> m >> sx >> sy >> d;
+        if ((1 < sx - d and sy+d < m) or (1 < sy-d and sx+d < n))
+        { 
+            std::cout << n+m-2 << "\n";
+        }
+        else
+        {
+            std::cout << -1 << "\n"; 
+        }
     }
 }
