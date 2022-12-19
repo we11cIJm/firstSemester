@@ -20,7 +20,6 @@ int main()
 	{
 		if(nums[i] != 0) c++; 
 	}
-	// bool check = false;
 	for(int i = n; i > 0; i--)
 	{
 		if(c > 1)
