@@ -42,7 +42,7 @@ void solve935B()
     }
     std::cout << k << '\n';
 }
- 
+
 int main() 
 {
 	solve935B();
