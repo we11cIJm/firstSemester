@@ -1,125 +1,124 @@
 #include <iostream>
-#include <vector>
-#include <cmath>
 #include <string>
-#include <algorithm>
-
+ 
 int main()
 {
-    int t;
+    int t = 0;
+    int a = 0;
+    int b = 0;
+    int k = 0;
+    bool flag = true;
+    std::string s;
     std::cin >> t;
-    int a, b, n, counterOfQMarks = 0;
-    char x;
-    bool check1, check2;
-    for(int l = 0; l < t; l++)
+    for (int i = 0; i < t; i += 1)
     {
-        check1 = true;
-        check2 = true;
+        flag = true;
+        k = 0;
         std::cin >> a >> b;
-        n = a + b;
-        std::vector<char> str;
-        std::vector<int> index;
-        for(int i = 0; i < n; i++)
+        std::cin >> s;
+        const int n = a + b;
+        for (int h = 0; h < n/2; h += 1)
         {
-            std::cin >> x;
-            str.push_back(x);
-        }
-        for(int i = 0; i < n / 2; i++)
-        {
-            if(str[i] != str[n - i - 1] && str[i] != '?' && str[n - i - 1] != '?')
+            if (s[h] != s[n - 1 - h])
             {
-                std::cout << -1 << '\n';
-                check1 = false;
-                break;
-            }
-            else if(str[i] == str[n - i - 1] && str[i] == '?')
-            {
-                counterOfQMarks += 2;
-                index.push_back(i);
-                index.push_back(n - i - 1);
-            }
-            else if(str[i] != str[n - i - 1] && (str[i] == '?' || str[n - i - 1] == '?'))
-            {
-                if(str[i] == '0' || str[n - i - 1] == '0')
+                if (s[h] == '?')
                 {
-                    a--;
-                    if(str[i] == '0')
+                    s[h] = s[n - 1 - h];
+                    if (s[n - 1 - h] == '0')
                     {
-                        str[n - i - 1] = '0';
+                        a -= 2;
+                    }
+                    else b -= 2;
+ 
+                }
+                else if (s[n - 1 - h] == '?')
+                {
+                    s[n-1-h] = s[h];
+                    if (s[h] == '0')
+                    {
+                        a -= 2;
+                    }
+                    else b -= 2;
+                }
+                else {
+                    flag = false;
+                    break;
+                }
+            }
+            else if (s[h] != '?')
+            {
+                if (s[h] == '0')
+                    a -= 2;
+                else b -= 2;
+            }
+            if (s[h] == s[n - 1 - h] && s[h] == '?')
+            {
+                k++;
+            }
+        }
+        if (((a / 2) + (b / 2) < k) || (flag == false))
+        {
+            std::cout << "-1"<<"\n";
+        }
+        else
+        {
+            for (int h = 0; h < n / 2; h += 1)
+            {
+                if ((s[h] == s[n - 1 - h]) && s[h] == '?')
+                {
+                    if ((a != 0) && (a != 1))
+                    {
+                        s[h] = '0';
+                        s[n - 1 - h] = '0';
+                        a -= 2;
                     }
                     else
                     {
-                        str[i] = '0';
+                        s[h] = '1';
+                        s[n - 1 - h] = '1';
+                        b -= 2;
                     }
-                }
-                else
-                {
-                    b--;
-                    if(str[i] == '1')
-                    {
-                        str[n - i - 1] = '1';
-                    }
-                    else
-                    {
-                        str[i] = '1';
-                    }
+ 
                 }
             }
-            if(str[i] == '0') a--;
-            if(str[n - i - 1] == '0') a--;
-            if(str[i] == '1') b--;
-            if(str[n - i - 1] == '1') b--;
-        }
-        // std::cout << counterOfQMarks << '\n';
-        if(check1 == true)
-        {
-            if(a >= 0 && b >= 0)
+            if ((n % 2 == 1 && s[n / 2] == '?') || ((n == 1) && (s[0] == '?')))
             {
-                int c = counterOfQMarks;
-                for(int q = 0; q < c / 2; q++)
+                if (n != 1)
                 {
-                    if(counterOfQMarks <= a)
+                    if (a != 0)
                     {
-                        for(int k = 0; k < index.size() - 1; k++)
-                        {
-                            str[index[k]] = '0';
-                            str[index[k + 1]] = '0';
-                        }
+                        s[n / 2] = '0';
+                        a -= 1;
                     }
-                    else if(counterOfQMarks <= b)
-                    {
-                        for(int k = 0; k < index.size() - 1; k++)
-                        {
-                            str[index[k]] = '1';
-                            str[index[k + 1]] = '1';
-                        }
+                    else {
+                        s[n / 2] = '1';
+                        b -= 1;
                     }
-                    else
-                    {
-                        std::cout << -1 << '\n';
-                        check2 = false;
-                        break;
-                    }
-                    counterOfQMarks -= 2;
                 }
-                if(check2 == true)
-                { 
-                    for(int j = 0; j < str.size(); j++)
+                else {
+                    if (a != 0)
                     {
-                        std::cout << str[j];
+                        s[0] = '0';
+                        a -= 1;
                     }
-                    std::cout << std::endl;
-                }
-                else
-                {
-                    std::cout << -1 << '\n';
+                    else {
+                        s[0] = '1';
+                        b -= 1;
+                    }
                 }
             }
-            else
+            if (a+b == 1 && n%2==1)
             {
-                std::cout << -1 << '\n';
+                if (s[n/2] == '0')
+                    a -= 1;
+                else b -= 1;
             }
+            if (a == 0 && b == 0)
+                std::cout << s << "\n";
+            else std::cout << "-1"<<"\n";
+ 
+ 
         }
-        // дописать вычет a и b, когда на вход даётся 0 или 1 
+  
     }
 }
