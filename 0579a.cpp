@@ -15,3 +15,4 @@ int main()
     }
     std::cout << counter;
 }
+
