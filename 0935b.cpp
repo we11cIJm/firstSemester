@@ -4,7 +4,7 @@
 #include <algorithm>
 #include <cmath>
  
-void solve935B()
+int main()
 {
     int n;
     std::cin >> n;
@@ -41,9 +41,4 @@ void solve935B()
         }
     }
     std::cout << k << '\n';
-}
-
-int main() 
-{
-	solve935B();
 }
