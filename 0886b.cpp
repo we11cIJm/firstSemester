@@ -28,3 +28,4 @@ int main()
     }
     std::cout << v[min_i] << "\n";
 }
+
