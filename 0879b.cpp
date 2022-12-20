@@ -31,7 +31,8 @@ int main()
                 a.push(a.front());
                 a.pop();
             }
-            else {
+            else
+            {
                 
                 a.push(win);
                 win = a.front();
