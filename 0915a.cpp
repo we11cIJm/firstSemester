@@ -5,7 +5,7 @@
 #include <algorithm>
 #include <cmath>
  
-void solve915A()
+int main()
 {
     int n, k, a, max = -1;
     std::cin >> n >> k;
@@ -18,9 +18,4 @@ void solve915A()
         }
     }
     std::cout << k / max << '\n';
-}
- 
-int main() 
-{
-    solve915A();
 }
