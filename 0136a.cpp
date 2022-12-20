@@ -35,7 +35,8 @@ void solve136A()
         std::cout << rdy[i] << ' ';
     }
 }
- 
+
+
 int main() 
 {
 	solve136A();
