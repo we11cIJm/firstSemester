@@ -23,3 +23,4 @@ int main()
     }
     else std::cout << "Yes";
 }
+
