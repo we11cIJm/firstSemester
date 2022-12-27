@@ -27,8 +27,8 @@ int main()
     int x;
     while(std::cin.good())
     {
-        if(!std::cin.good()) break;
         std::cin >> x;
+        if(!std::cin.good()) break;
         arr.push_back(x);
     }
     // reverse(arr.begin(), arr.end());
