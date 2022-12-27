@@ -31,8 +31,8 @@ int main()
         std::cin >> x;
         arr.push_back(x);
     }
-    reverse(arr.begin(), arr.end());
-    for(int i = 0; i < arr.size() - 1; i++)
+    // reverse(arr.begin(), arr.end());
+    for(int i = arr.size() - 1; i >= 0; i--)
     {
         if(i % 2 == 0)
         {
