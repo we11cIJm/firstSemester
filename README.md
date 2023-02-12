@@ -1,2 +1,2 @@
-# misisS1
+# misisS2
 this is a repository for solving some tasks on a misis course of programming
